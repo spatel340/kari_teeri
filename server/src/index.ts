@@ -1,5 +1,5 @@
 import cors from "cors";
-import express from "express";
+import express, { type NextFunction, type Request, type Response } from "express";
 import { existsSync } from "node:fs";
 import { createServer } from "node:http";
 import { dirname, join } from "node:path";
@@ -14,7 +14,7 @@ const isProduction = process.env.NODE_ENV === "production";
 app.use(cors());
 app.use(express.json());
 
-app.get("/health", (_request, response) => {
+app.get("/health", (_request: Request, response: Response) => {
   response.json({
     ok: true,
     service: "kari-teeri-server",
@@ -25,7 +25,7 @@ app.get("/health", (_request, response) => {
 if (isProduction) {
   if (existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
-    app.get("*", (request, response, next) => {
+    app.get("*", (request: Request, response: Response, next: NextFunction) => {
       if (request.path.startsWith("/socket.io")) {
         next();
         return;
