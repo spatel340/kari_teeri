@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-ink-950 font-body text-slate-100 antialiased;
+  background-image:
+    radial-gradient(circle at top, rgba(15, 76, 91, 0.28), transparent 28%),
+    radial-gradient(circle at 15% 25%, rgba(216, 165, 61, 0.18), transparent 24%),
+    linear-gradient(180deg, #09111e 0%, #060913 100%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 196, 106, 0.35) rgba(255, 255, 255, 0.06);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(242, 196, 106, 0.35);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(3, 7, 18, 0.92));
+  backdrop-filter: blur(18px);
+}
+
+.felt-table {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,0.08), transparent 28%),
+    radial-gradient(circle at 50% 50%, rgba(5, 20, 28, 0.1), rgba(3, 28, 34, 0.88) 68%, rgba(1, 10, 14, 0.98) 100%);
+}

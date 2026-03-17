@@ -1,0 +1,31 @@
+{
+  "name": "kari-teeri",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace shared\" \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "build": "npm run build --workspace shared && npm run build --workspace server && npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "lint": "eslint \"{client,server,shared}/src/**/*.{ts,tsx}\"",
+    "test": "vitest run",
+    "check": "npm run build && npm run lint && npm run test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.22.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.8"
+  }
+}
